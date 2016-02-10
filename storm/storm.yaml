@@ -1,7 +1,7 @@
 storm.zookeeper.servers:
-    - "%zookeeper%"
-nimbus.host: "%nimbus%"
+    - "zk:2181"
+nimbus.host: "nimbus"
 drpc.servers:
-  - "%nimbus%"
+  - "nimbus"
 drpc.port: 3772
 drpc.invocations.port: 3773
