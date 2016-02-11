@@ -1,7 +1,7 @@
-FROM wurstmeister/storm:0.9.4
-MAINTAINER Wurstmeister
+FROM undeadops/storm:0.9.4
+MAINTAINER Mitch Anderson <@undeadops>
 
-RUN /usr/bin/config-supervisord.sh nimbus 
+RUN /usr/bin/config-supervisord.sh nimbus
 RUN /usr/bin/config-supervisord.sh drpc
 
 EXPOSE 6627

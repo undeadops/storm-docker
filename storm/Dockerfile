@@ -1,6 +1,6 @@
-FROM wurstmeister/base
+FROM undeadops/ubuntu-base
 
-MAINTAINER Wurstmeister 
+MAINTAINER Mitch Anderson <@undeadops>
 
 RUN wget -q -O - http://mirrors.sonic.net/apache/storm/apache-storm-0.9.4/apache-storm-0.9.4.tar.gz | tar -xzf - -C /opt
 
@@ -12,6 +12,6 @@ RUN ln -s $STORM_HOME/bin/storm /usr/bin/storm
 ADD storm.yaml $STORM_HOME/conf/storm.yaml
 ADD cluster.xml $STORM_HOME/logback/cluster.xml
 ADD config-supervisord.sh /usr/bin/config-supervisord.sh
-ADD start-supervisor.sh /usr/bin/start-supervisor.sh 
+ADD start-supervisor.sh /usr/bin/start-supervisor.sh
 
 RUN echo [supervisord] | tee -a /etc/supervisor/supervisord.conf ; echo nodaemon=true | tee -a /etc/supervisor/supervisord.conf
