@@ -64,6 +64,5 @@ Following the example above, after discovering the nimbus host IP (could be loca
     storm jar target/your-topology-fat-jar.jar com.your.package.AndTopology topology-name -c nimbus.host=192.168.99.100 -c nimbus.thrift.port=49627
 
 ### How can I connect to one of the containers?
-Find the forwarded ssh port for the container you wish to connect to (use `docker-compose ps`)
 
     $ docker exec -it `docker ps | grep ui | awk '{ print $1 }'` /bin/bash
