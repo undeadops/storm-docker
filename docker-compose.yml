@@ -12,7 +12,7 @@ services:
       - "3888:3888"
 
   nimbus:
-    image: undeadops/storm-nimbus
+    image: undeadops/storm-nimbus:0.9.4
     ports:
       - "49773:3773"
       - "49772:3772"
@@ -21,7 +21,7 @@ services:
       - zookeeper:zk
 
   supervisor:
-    image: undeadops/storm-supervisor
+    image: undeadops/storm-supervisor:0.9.4
     ports:
       - "8000"
     links:
@@ -29,7 +29,7 @@ services:
       - zookeeper:zk
       
   ui:
-    image: undeadops/storm-ui
+    image: undeadops/storm-ui:0.9.4
     ports:
       - "49080:8080"
     links:
