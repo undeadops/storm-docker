@@ -1,4 +1,4 @@
-FROM undeadops/storm:0.9.4
+FROM undeadops/storm
 MAINTAINER Mitch Anderson <@undeadops>
 RUN /usr/bin/config-supervisord.sh ui
 
