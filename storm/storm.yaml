@@ -29,7 +29,7 @@ nimbus.childopts: -Xmx1024m
 
 ### ui.* configs are for the master
 ui.host: 0.0.0.0
-ui.port: 8088
+ui.port: 8080
 ui.childopts: -Xmx768m
 
 ### drpc.* configs
