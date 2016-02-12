@@ -1,7 +1,49 @@
+### base
+java.library.path: "/usr/local/lib:/opt/local/lib:/usr/lib"
+storm.local.dir: "/home/storm"
+
+### zookeeper.*
+storm.zookeeper.retry.interval: 5000
+storm.zookeeper.retry.times: 29
+storm.zookeeper.root: /storm
+storm.zookeeper.session.timeout: 30000
 storm.zookeeper.servers:
-    - zk:2181
+    - zk
+storm.zookeeper.port: 2181
+
+### supervisor.* configs are for node supervisors
+supervisor.slots.ports:
+    - 6701
+    - 6702
+    - 6703
+    - 6704
+supervisor.childopts: -Xmx1024m
+
+### worker.* configs are for task workers
+worker.childopts: -Xmx1280m -XX:+UseConcMarkSweepGC -Dcom.sun.management.jmxremote
+
+### nimbus.* configs are for the master
 nimbus.host: nimbus
+nimbus.thrift.port: 6627
+nimbus.childopts: -Xmx1024m
+
+### ui.* configs are for the master
+ui.host: 0.0.0.0
+ui.port: 8088
+ui.childopts: -Xmx768m
+
+### drpc.* configs
 drpc.servers:
   - nimbus
 drpc.port: 3772
 drpc.invocations.port: 3773
+
+### transactional.* configs
+transactional.zookeeper.servers:
+    - "zk"
+transactional.zookeeper.port: 2181
+transactional.zookeeper.root: /storm-transactional
+
+### topology.* configs are for specific executing storms
+topology.acker.executors: 1
+topology.debug: False
