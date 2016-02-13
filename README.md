@@ -41,9 +41,6 @@ Add more supervisors:
 
 - ```docker-compose scale supervisor=3```
 
-##Building
-
-- ```rebuild.sh```
 
 ##FAQ
 ### How can I access Storm UI from my host?
@@ -61,8 +58,8 @@ This tells Docker to expose the Docker UI container's port 8080 as port 8080 on 
 
 If you are running docker natively you can use localhost. If you're using boot2docker, then do:
 
-    ```$ docker-machine ip dev```
-    The VM's Host only interface IP address is: 192.168.99.100
+```$ docker-machine ip dev```
+The VM's Host only interface IP address is: 192.168.99.100
 
 Which returns your docker VM's IP.<br/>
 So, to open storm UI, type the following in your browser:
@@ -75,7 +72,7 @@ in my case.
 Since the nimbus host and port are not default, you need to specify where the nimbus host is, and what is the nimbus port number.<br/>
 Following the example above, after discovering the nimbus host IP (could be localhost, could be our docker VM ip as in the case of boot2docker), run the following command:
 
-    storm jar target/your-topology-fat-jar.jar com.your.package.AndTopology topology-name -c nimbus.host=192.168.99.100 -c nimbus.thrift.port=49627
+    storm jar target/your-topology-fat-jar.jar com.your.package.AndTopology topology-name -c nimbus.host=192.168.99.100 -c nimbus.thrift.port=6627
 
 ### How can I connect to one of the containers?
 
