@@ -12,17 +12,17 @@ The images are available directly from [https://hub.docker.com/u/undeadops/](htt
 
 - Install [Docker-Toolbox](https://www.docker.com/products/docker-toolbox)
 
-  Create boot2docker image like so:
+-  Create boot2docker image like so:
 
-    ```docker-machine create --virtualbox-memory "4096" --virtualbox-cpu-count "4" -d virtualbox dev```
+   ```docker-machine create --virtualbox-memory "4096" --virtualbox-cpu-count "4" -d virtualbox dev```
 
-  This will create a VirtualBox VM named "dev" with 4G memory and 4 vCPUs
+   This will create a VirtualBox VM named "dev" with 4G memory and 4 vCPUs
 
-  Add the next line to your ~/.bashrc or ~/.zshrc file:
+-  Add the next line to your ~/.bashrc or ~/.zshrc file:
 
-    ```eval "$(docker-machine env dev)"```
+   ```eval "$(docker-machine env dev)"```
 
-  This will make sure the docker commands on your OSX Box map to your VirtualBox VM.
+   This will make sure the docker commands on your OSX Box map to your VirtualBox VM.
 
 ##Usage
 Checkout Repo:
