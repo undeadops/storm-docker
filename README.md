@@ -6,13 +6,28 @@ Dockerfiles for building a storm cluster.
 My repo is based off of [https://github.com/wurstmeister/storm-docker](https://github.com/wurstmeister/storm-docker)
 Inspired by [https://github.com/ptgoetz/storm-vagrant](https://github.com/ptgoetz/storm-vagrant)
 
-The images are available directly from [https://index.docker.io](https://index.docker.io)
+The images are available directly from [https://hub.docker.com/u/undeadops/](https://hub.docker.com/u/undeadops/)
 
-##Pre-Requisites
+##Pre-Requisites for OSX Development (main purpose of this currently)
 
-- install docker-compose [http://docs.docker.com/compose/install/](http://docs.docker.com/compose/install/)
+- Install [Docker-Toolbox](https://www.docker.com/products/docker-toolbox)
+
+  Create boot2docker image like so:
+
+    ```docker-machine create --virtualbox-memory "4096" --virtualbox-cpu-count "4" -d virtualbox dev```
+
+  This will create a VirtualBox VM named "dev" with 4G memory and 4 vCPUs
+
+  Add the next line to your ~/.bashrc or ~/.zshrc file:
+
+    ```eval "$(docker-machine env dev)"```
+
+  This will make sure the docker commands on your OSX Box map to your VirtualBox VM.
 
 ##Usage
+Checkout Repo:
+
+  ```git clone https://github.com/undeadops/storm-docker```
 
 Start a cluster:
 
@@ -35,23 +50,22 @@ Add more supervisors:
 Take a look at docker-compose.yml:
 
     ui:
-      image: undeadops/storm-ui:0.9.4
+      image: undeadops/storm-ui
 	    ports:
-	      "8080:8080"
+	      - "8080:8080"
+      links:
+        - "zookeeper:zk"
+        - "nimbus:nimbus"
 
 This tells Docker to expose the Docker UI container's port 8080 as port 8080 on the host<br/>
 
 If you are running docker natively you can use localhost. If you're using boot2docker, then do:
 
-    $ boot2docker ip
+    ```$ docker-machine ip dev```
     The VM's Host only interface IP address is: 192.168.99.100
 
 Which returns your docker VM's IP.<br/>
 So, to open storm UI, type the following in your browser:
-
-    localhost:8080
-
-or
 
     192.168.99.100:8080
 
