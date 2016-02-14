@@ -1,4 +1,4 @@
-FROM undeadops/storm
+FROM undeadops/storm:0.10.0
 MAINTAINER Mitch Anderson <@undeadops>
 
 EXPOSE 6701
